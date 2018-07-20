@@ -1,19 +1,19 @@
 T-SQL
 
-<b>-- Disable All/Single Table Constraints</b>
+-- Disable All/Single Table Constraints
 ALTER TABLE TableName NOCHECK CONSTRAINT ALL/ConstraintName
 
-<b>-- Enable All/Single Table Constraints</b>
+-- Enable All/Single Table Constraints
 1) ALTER TABLE TableName CHECK CONSTRAINT ALL/ConstraintName
 2) ALTER TABLE TableName WITH CHECK CHECK ALL/ConstraintName
 
-<b>-- Disable All Constraints for a Database</b>
+-- Disable All Constraints for a Database
 EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
 
-<b>-- Enable All Constraints for a Database</b>
+-- Enable All Constraints for a Database
 EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"
 
-<b>-- Create PRIMARY KEY Constraint for a Column</b>
+-- Create PRIMARY KEY Constraint for a Column
 1) ALTER TABLE [TableName]    
    ADD CONSTRAINT PK_[TableName]_[ColumnName] PRIMARY KEY CLUSTERED ([ColumnName1]);
 
@@ -23,11 +23,11 @@ EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"
      CONSTRAINT PK_[TableName]_[ColumnName] PRIMARY KEY CLUSTERED ([ColumnName])  
    ); 
   
-<b>-- Drop PRIMARY KEY Constraint for a Column</b>
+-- Drop PRIMARY KEY Constraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT PK_[TableName]_[ColumnName]
 
-<b>-- Create FOREIGN KEY Constraint for a Column</b>
+-- Create FOREIGN KEY Constraint for a Column
 1) ALTER TABLE [TableName1]
    ADD CONSTRAINT FK_[TableName1]_[ColumnName] FOREIGN KEY ([ColumnName1]) REFERENCES ON [TableName2] ([ColumnName2]) 
    ON DELETE CASCADE    
@@ -42,11 +42,11 @@ DROP CONSTRAINT PK_[TableName]_[ColumnName]
      ON UPDATE CASCADE 
    ); 
    
-<b>-- Drop PRIMARY KEY Constraint for a Column</b>
+-- Drop PRIMARY KEY Constraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT FK_[TableName]_[ColumnName]
 
-<b>-- Create DEFAULT Constraint for a Column</b>
+-- Create DEFAULT Constraint for a Column
 1) ALTER TABLE [TableName] 
    ADD CONSTRAINT DF_[TableName]_[ColumnName]  
    DEFAULT [Value] FOR [ColumnName] 
@@ -57,25 +57,25 @@ DROP CONSTRAINT FK_[TableName]_[ColumnName]
      [ColumnName] int CONSTRAINT DF_[TableName]_[ColumnName] DEFAULT [Value]; 
    );
    
-<b>-- Drop DEFAULT Costraint for a Column</b>
+-- Drop DEFAULT Costraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT DF_[TableName]_[ColumnName]
 
-<b>-- Create UNIQUE Constraint for a Column</b>
+-- Create UNIQUE Constraint for a Column
 ALTER TABLE [TableName] 
 ADD CONSTRAINT AK_[TableName]_[ConstraintName]  
 UNIQUE([ColumnName]) 
 
-<b>-- Drop UNIQUE Costraint for a Column</b>
+-- Drop UNIQUE Costraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT AK_[TableName]_[ColumnName]
 
-<b>-- Create CHECK Constraint for a Column</b>
+-- Create CHECK Constraint for a Column
 ALTER TABLE [TableName] 
 ADD CONSTRAINT CHK_[TableName]_[ConstraintName]  
 CHECK([ColumnName] > 5 AND/OR [AnotherConditions]) 
 
-<b>-- Drop CHECK Costraint for a Column</b>
+-- Drop CHECK Costraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT CHK_[TableName]_[ColumnName]
 
