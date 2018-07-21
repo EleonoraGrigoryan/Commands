@@ -6,7 +6,7 @@ DECLARE @[VariableName1] [Type1],  @[VariableName2] [Type2], ...
 -- Set a Value for a Variable
 SET @[VariableName] = [Value];
 
--- Declate and Set Together
+-- Declare and Set Together
 DECLRE @[VariableName] [Type] = [Value];
 
 -- Print the Value of a Local Variable
