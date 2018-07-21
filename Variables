@@ -4,10 +4,14 @@
 DECLARE @[VariableName1] [Type1],  @[VariableName2] [Type2], ...
 
 -- Set a Value for a Variable
-SET @[VariableName] = [Value];
+1) SELELCT @[VariableName] = [Value];
+2) SET @[VariableName] = [Value];
+3) SET @[VariableName] = (SELECT [ColumnName] FROM [TableName] WHERE [Condition(s)])
 
 -- Declare and Set Together
 DECLRE @[VariableName] [Type] = [Value];
 
 -- Print the Value of a Local Variable
 PRINT @[VariableName] 
+
+
