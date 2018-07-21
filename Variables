@@ -1,0 +1,10 @@
+T-SQL
+
+-- Declare a Variable(s)
+DECLARE @[VariableName1] [Type1],  @[VariableName2] [Type2], ...
+
+-- Set a Value for a Variable
+SET @[VariableName] = [Value];
+
+-- Declate and Set Together
+DECLRE @[VariableName] [Type] = [Value];
