@@ -1,0 +1,7 @@
+T-SQL
+
+-- Creat an Index on a Table 
+
+-- Create an Index on a View
+CREATE UNIQUE CLUSTERED INDEX [IndexName]                     --like ivtablename
+ON [ViewName]([ColumnName1], [ColumnName2], [ColumnName3],...);
