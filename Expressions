@@ -1,0 +1,18 @@
+--T-SQL
+
+-- Simple CASE Expression   
+CASE input_expression   
+     WHEN when_expression THEN result_expression [ ...n ]   
+     [ ELSE else_result_expression ]   
+END 
+
+-- Searched CASE Expression:  
+CASE  
+     WHEN Boolean_expression THEN result_expression [ ...n ]   
+     [ ELSE else_result_expression ]   
+END 
+
+-- Logical IIF
+IIF ( boolean_expression, true_value, false_value ) 
+
+
