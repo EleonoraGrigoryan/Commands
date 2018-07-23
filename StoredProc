@@ -9,10 +9,27 @@ BEGIN
 [body]
 END
 
--- Call Sroc with INPUT Parameter
+-- Create Spproc with Multiple OUTPUT parameters
+CREATE PROCEDURE [SprocName]
+[@param1 int OUTPUT] ,  -- use comma
+[@param2 int OUTPUT] ,
+[@param3 int = DEFAULT OUTPUT] 
+AS
+BEGIN
+[body]
+END
+
+-- Call Sproc with INPUT Parameter
 1) EXEC [SprocName] '[Value]'
 2) EXEC [SprocName] [Number]
 
 -- Call Sproc with OUTPUT Parameter
 DECLARE @var int
 EXEC [SprocName] @var OUTPUT
+
+-- Call Sproc with Multiple OUTPUT parameters
+
+DECLARE @var1 int
+DECLARE @var2 nvarchar(90)
+EXEC up_somename @var1 OUT, @var2 OUT  --use comma
+
