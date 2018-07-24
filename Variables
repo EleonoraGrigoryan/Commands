@@ -15,4 +15,7 @@ DECLRE @[VariableName] [Type] = [Value];
 -- Print the Value of a Local Variable
 PRINT @[VariableName] 
 
-
+-- TABLE Type Variables (CREATE & INSERT INTO ... SELECT Statements)
+CREATE @[VarName] TABLE
+INSERT INTO @[VarName] 
+SELECT [ColumnName1], [ColumnName2]... FROM [TableName] {Conditions}
