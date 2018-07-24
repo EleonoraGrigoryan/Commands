@@ -1,0 +1,21 @@
+-- T-SQL
+
+-- Create a Function
+CREATE FUNCTION [FunctionName] (@PARAM [Type])
+RETURNS [Type]
+[WITH SHEMABINDING]
+[WITH ENCRYPTION]
+AS
+BEGIN
+  [Body]
+END
+
+-- Find out Whether Function Is Deterministic or Not
+SELECT OBJECTPROPERTY(OBJECT_ID('[FunctionName]'), 'IsDeterministic');
+
+-- Get OBJECT_ID of a Function
+SELECT OBJECT_ID('[FunctionName]')
+
+--DROP a Function
+DROP FUNCTION [FunctionName]
+
