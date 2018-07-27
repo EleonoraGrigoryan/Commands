@@ -35,3 +35,10 @@ AS
 -- Disable and Enable Triggers
 ALTER TABLE [TableName]
 <ENABLE|DISABLE> TRIGGER <ALL|[TriggerName]>
+
+-- Set a Trigger Order
+sp_settriggerorder[@triggername =] ‘[TriggerName]’,
+[@order =] ‘{FIRST|LAST|NONE}’,
+[@stmttype =] ‘{INSERT|UPDATE|DELETE}’
+[, [@namespace =] {‘DATABASE’ | ‘SERVER’ | NULL} ]
+
