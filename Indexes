@@ -1,7 +1,25 @@
-T-SQL
-
--- Creat an Index on a Table 
+-- T-SQL
 
 -- Create an Index on a View
 CREATE UNIQUE CLUSTERED INDEX [IndexName]                     --like ivtablename
 ON [ViewName]([ColumnName1], [ColumnName2], [ColumnName3],...);
+
+-- Create Clustered and Non Clustered Unique Indexes
+create unique clustered index [IndexName] on [TableName]([ColumnName1], [ColumnName2], [ColumnName3],...);
+create unique nonclustered index [IndexName] on [TableName]([ColumnName1], [ColumnName2], [ColumnName3],...[ColumnName16]);
+
+-- drop_existing & Included Columns with Where Condition
+-- Max 16 key column
+-- Infinite Included Columns
+create nonclustered index [IndexName] on [TableName]([ColumnName1], [ColumnName2], [ColumnName3],...[ColumnName16]);
+include ([ColumnName1*], [ColumnName2*], [ColumnName3*],...)
+where [ColumnName1*] <> 'pig'
+with(drop_existing=on)
+
+--Rebuild an Index with Fill Factor
+alter index [IndexName] on [TableName]
+rebuild with (fillfactor = 80, online = off/on, );
+
+--Reorganize an Index (does not have Fill Factor), only Online
+alter [IndexName] on [TableName]
+reorganize
