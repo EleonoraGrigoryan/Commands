@@ -31,3 +31,7 @@ FOR {AFTER} | {INSTEAD OF}
 DELETE [ , ] INSERT [ , ] UPDATE
 AS
 [Body]
+
+-- Disable and Enable Triggers
+ALTER TABLE [TableName]
+<ENABLE|DISABLE> TRIGGER <ALL|[TriggerName]>
