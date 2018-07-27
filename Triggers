@@ -42,3 +42,7 @@ sp_settriggerorder[@triggername =] ‘[TriggerName]’,
 [@stmttype =] ‘{INSERT|UPDATE|DELETE}’
 [, [@namespace =] {‘DATABASE’ | ‘SERVER’ | NULL} ]
 
+
+-- DROP a Trigger (!) Always mention schema name
+DROP TRIGGER [SchemaName].[TriggerName]
+
