@@ -1,0 +1,33 @@
+-- T-SQL
+
+-- CREATE a DML Trigger
+CREATE TRIGGER [SchemaName].[TriggerName]
+ON [TableName] | [ViewName]
+FOR {AFTER} | {INSTEAD OF}
+DELETE [ , ] INSERT [ , ] UPDATE
+AS
+[Body]
+
+-- CREATE a DDL Trigger 
+CREATE TRIGGER [SchemaName].[TriggerName]
+ON DATABASE
+FOR {AFTER} | {INSTEAD OF}
+DELETE [ , ] INSERT [ , ] UPDATE
+AS
+[Body]
+
+-- Create a Server Trigger *
+CREATE TRIGGER [SchemaName].[TriggerName]
+ON ALL SERVER
+FOR {AFTER} | {INSTEAD OF}
+DELETE [ , ] INSERT [ , ] UPDATE
+AS
+[Body]
+
+-- ALTER a Trigger
+ALTER TRIGGER [SchemaName].[TriggerName]
+ON [TableName] | [ViewName]
+FOR {AFTER} | {INSTEAD OF}
+DELETE [ , ] INSERT [ , ] UPDATE
+AS
+[Body]
