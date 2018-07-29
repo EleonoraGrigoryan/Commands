@@ -1,0 +1,16 @@
+
+-- Select columns of the user created tables and the type of each one
+
+    select obj.name, col.name, type_name(col.user_type_id)
+    from sys.objects as obj
+    inner join sys.columns as col on obj.object_id = col.object_id
+    where obj.type = 'u'
+    
+-- Select user defined indexes on user tables - not heaps
+
+    select 
+    idx.[name] as [Index]
+    from sys.indexes as idx
+    inner join sys.objects as obj on idx.object_id = obj.object_id
+    where idx.[name] is not null and obj.[type] = 'u'
+    order by idx.[name]
