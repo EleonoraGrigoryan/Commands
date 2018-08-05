@@ -42,7 +42,7 @@ DROP CONSTRAINT PK_[TableName]_[ColumnName]
      ON UPDATE CASCADE 
    ); 
    
--- Drop PRIMARY KEY Constraint for a Column
+-- Drop FOREIGN KEY Constraint for a Column
 ALTER TABLE [TableName]
 DROP CONSTRAINT FK_[TableName]_[ColumnName]
 
