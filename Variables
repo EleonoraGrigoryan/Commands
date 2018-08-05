@@ -16,7 +16,7 @@ DECLRE @[VariableName] [Type] = [Value];
 PRINT @[VariableName] 
 
 -- TABLE Type Variables (CREATE & INSERT INTO ... SELECT Statements)
-CREATE @[VarName] TABLE
+DECLARE @[VarName] TABLE(Specifications)
 INSERT INTO @[VarName] 
 SELECT [ColumnName1], [ColumnName2]... FROM [TableName] {Conditions}
 
