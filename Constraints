@@ -29,7 +29,7 @@ DROP CONSTRAINT PK_[TableName]_[ColumnName]
 
 -- Create FOREIGN KEY Constraint for a Column
 1) ALTER TABLE [TableName1]
-   ADD CONSTRAINT FK_[TableName1]_[ColumnName] FOREIGN KEY ([ColumnName1]) REFERENCES ON [TableName2] ([ColumnName2]) 
+   ADD CONSTRAINT FK_[TableName1]_[ColumnName] FOREIGN KEY ([ColumnName1]) REFERENCES [TableName2] ([ColumnName2]) 
    ON DELETE CASCADE    
    ON UPDATE CASCADE 
 
@@ -37,7 +37,7 @@ DROP CONSTRAINT PK_[TableName]_[ColumnName]
    (  
      [ColumnName] int IDENTITY (1,1) NOT NULL,  
      CONSTRAINT PK_[TableName]_[ColumnName] PRIMARY KEY CLUSTERED ([ColumnName]),
-     ADD CONSTRAINT FK_[TableName1]_[ColumnName] FOREIGN KEY ([ColumnName1]) REFERENCES ON [TableName2] ([ColumnName2]) 
+     CONSTRAINT FK_[TableName1]_[ColumnName] FOREIGN KEY ([ColumnName1]) REFERENCES [TableName2] ([ColumnName2]) 
      ON DELETE CASCADE    
      ON UPDATE CASCADE 
    ); 
