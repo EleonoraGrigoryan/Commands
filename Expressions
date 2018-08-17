@@ -6,6 +6,17 @@ CASE input_expression
      [ ELSE else_result_expression ]   
 END 
 
+-- Case Inside the Select Statement (Example of Nested Case Statements)
+select 
+case when [condition] then
+    case when [ConditionForNestedCase] then [statement1]
+                   [body]
+    end
+else 'statement'
+end 
+from tbname
+
+
 -- Searched CASE Expression:  
 CASE  
      WHEN Boolean_expression THEN result_expression [ ...n ]   
