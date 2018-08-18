@@ -1,0 +1,5 @@
+-- T-SQL
+
+-- Create a Basic Type
+create type address
+from nvarchar(20) not null
