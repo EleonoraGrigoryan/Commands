@@ -14,6 +14,6 @@ select dateadd(weekday,200,'20180820')
 DECLARE @datetime2 datetime2 = '2007-01-01 13:10:10.1111111';  
 SELECT '2 millisecond', DATEADD(millisecond,2,@datetime2) 
 
-
+select eomonth('20180913')
 
 
