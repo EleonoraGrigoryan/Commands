@@ -1,5 +1,7 @@
 -- MS SQL Server
 
+set dateformat ymd
+
 select getdate()
 select day(getdate())
 select month(getdate())
@@ -16,4 +18,7 @@ SELECT '2 millisecond', DATEADD(millisecond,2,@datetime2)
 
 select eomonth('20180913')
 
+set datefirst  1
+select @@datefirst
 
+select isdate('20187813')  -- 0/1
