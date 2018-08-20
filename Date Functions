@@ -1,0 +1,19 @@
+-- MS SQL Server
+
+select getdate()
+select day(getdate())
+select month(getdate())
+select year(getdate())
+-- there is no hour, minute or millisecond functions
+select sysdatetimeoffset()
+
+select datepart(mm, '2018/08/20')
+
+select dateadd(weekday,200,'20180820')
+
+DECLARE @datetime2 datetime2 = '2007-01-01 13:10:10.1111111';  
+SELECT '2 millisecond', DATEADD(millisecond,2,@datetime2) 
+
+
+
+
