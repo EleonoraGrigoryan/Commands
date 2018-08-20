@@ -1,0 +1,15 @@
+-- In MS SQL Server
+
+rand()
+
+-- 
+select rand(6)
+
+--select from 0-9
+select floor(rand() * 10)
+
+-- select from >= min and < max as int
+select cast(floor(rand()*(10-5)+5) as int);
+
+-- select from >= min and <= max as int
+select cast(floor(rand()*(10-5+1)+5) as int);
