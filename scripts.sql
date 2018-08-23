@@ -14,3 +14,20 @@
     inner join sys.objects as obj on idx.object_id = obj.object_id
     where idx.[name] is not null and obj.[type] = 'u'
     order by idx.[name]
+
+-- Find all the instance names in a server
+
+    Create Table #GetInstances
+    ( 
+        [Value] nvarchar(100),
+        [InstanceNames] nvarchar(100),
+        [Data] nvarchar(100)
+    )
+    Insert into #GetInstances
+    EXECUTE xp_regread
+      @rootkey = 'HKEY_LOCAL_MACHINE',
+      @key = 'SOFTWARE\Microsoft\Microsoft SQL Server',
+      @value_name = 'InstalledInstances'
+
+    Select InstanceNames from #GetInstances
+    drop table #GetInstances
