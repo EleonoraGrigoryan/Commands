@@ -1,0 +1,15 @@
+-- T-SQL
+
+-- Agent Error Log Recycle from msdb
+USE msdb ;  
+GO  
+
+EXEC dbo.sp_cycle_agent_errorlog ;  
+GO 
+
+-- SQL Server Error Log
+use master ; 
+go 
+
+exec sp_cycle_errorlog ;
+go
