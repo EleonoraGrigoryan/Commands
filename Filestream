@@ -1,0 +1,23 @@
+-- Configuration
+EXEC sp_configure filestream_access_level, 2  
+GO  
+RECONFIGURE  
+GO  
+
+-- How to insert files .jpg, .pdf, ...
+ create table saveimageshere
+ (
+	id uniqueidentifier rowguidcol not null unique,
+	name nvarchar(20),
+	image varbinary(max) filestream null
+ )
+
+ declare @tImage varbinary(max)
+ SELECT @tImage = CAST(bulkcolumn AS VARBINARY(MAX)) FROM OPENROWSET( BULK  
+            'C:\...',  
+            SINGLE_BLOB ) AS x  
+
+			insert into saveimageshere values (newid(), 'Nora''s pic', @tImage )
+
+			select * from saveimageshere
+
