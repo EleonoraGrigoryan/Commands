@@ -1,0 +1,12 @@
+-- TSQL
+
+raiserror('Test Message', 3, 1) with log
+raiserror('Test Message', 20, 1) with log    -- requires sysadmin role, severity > 18
+
+-- add to messages, number > 50000
+sp_addmessage 50001, 19, 'Test message', @with_log='True'
+
+-- view all messages (both system and user defined)
+select * from sys.messages
+
+-- select * from msdb.dbo.sysmail_allitems
