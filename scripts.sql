@@ -31,3 +31,12 @@
 
     Select InstanceNames from #GetInstances
     drop table #GetInstances
+
+
+-- select script of logon triggers
+SELECT
+    SSM.definition
+FROM
+    sys.server_triggers AS ST JOIN
+    sys.server_sql_modules AS SSM
+        ON ST.object_id = SSM.object_id
