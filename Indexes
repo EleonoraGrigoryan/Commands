@@ -23,3 +23,8 @@ rebuild with (fillfactor = 80, online = off/on, );
 --Reorganize an Index (does not have Fill Factor), only Online
 alter [IndexName] on [TableName]
 reorganize
+
+-- Create a filtered nonclustered index
+create nonclustered index [Name]
+on [TableName] ([ColumnName(s)])
+where [Condition] (like Gender = ‘Female’)
