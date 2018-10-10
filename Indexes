@@ -28,3 +28,11 @@ reorganize
 create nonclustered index [Name]
 on [TableName] ([ColumnName(s)])
 where [Condition] (like Gender = ‘Female’)
+
+-- Create Clustered Columnstore index
+CREATE CLUSTERED COLUMNSTORE INDEX index_name  
+    ON [database_name. [schema_name ] . | schema_name . ] table_name  
+    [ WITH ( < with_option> [ ,...n ] ) ]  
+    [ ON <on_option> ]  
+[ ; ]  
+
