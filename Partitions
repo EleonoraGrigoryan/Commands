@@ -1,0 +1,21 @@
+-- Create a partition function
+create partition function part_func_1(int)
+as range left for values(10,100,1000)
+
+-- Create a partition scheme
+create partition scheme part_scheme_1
+as partition part_func_1
+to (fl1, fl2, fl3, fl4)
+
+-- Create a new table with the scheme
+create table tb2 (id int, ...)
+on part_scheme_1(id)
+
+-- Partition an existing table
+-- (drop the old clustered index and create new one on the partition scheme)
+create clustered index idx on tb1(id)
+on part_scheme_1(id)
+
+-- Select the partitions including row numbers
+select * from sys.partitions
+where object_id = [objID]
