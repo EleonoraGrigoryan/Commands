@@ -16,6 +16,12 @@ on part_scheme_1(id)
 create clustered index idx on tb1(id)
 on part_scheme_1(id)
 
+-- Nonclustered index alignment
+(indexes may be not partitioned or in other filegroups)
+create nonclustered index [nc_idx_date]  on [tablename]([columnname])
+with (drop_existing=on)
+on [scheme]([column]) -- this column may be different from the key of nonclustered index
+
 -- Select the partitions including row numbers
 select * from sys.partitions
 where object_id = [objID]
