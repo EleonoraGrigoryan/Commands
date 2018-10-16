@@ -25,3 +25,25 @@ GO
 -- Change recovery mode
 -- (simple, full, bulk logged)
 alter database [name] set recovery full
+
+-- Partial backus include filegroups, basically read-write ones.
+
+-- backup a filegroup
+BACKUP DATABASE [name]   
+ <file_or_filegroup> [ ,...n ]   
+  TO <backup_device> [ ,...n ]   
+  [ <MIRROR TO clause> ] [ next-mirror-to ]  
+  [ WITH { DIFFERENTIAL | <general_WITH_options> [ ,...n ] } ]  
+[;]  
+
+-- Partial backups could be differential ot not
+BACKUP DATABASE [name]  
+ READ_WRITE_FILEGROUPS [ , <read_only_filegroup> [ ,...n ] ]  
+  TO <backup_device> [ ,...n ]   
+  [ <MIRROR TO clause> ] [ next-mirror-to ]  
+  [ WITH { DIFFERENTIAL | <general_WITH_options> [ ,...n ] } ]  
+[;]  
+
+
+
+
