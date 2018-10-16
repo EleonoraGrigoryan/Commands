@@ -7,6 +7,9 @@ Transaction Log Backup    - *.trn
 Differential Backup       - *.dif
 
 Filegroup Backup          - *.fil
+
+Filegroup and files       - *.bck
+
 */
 
 -- SQL Server full database backup basic syntax
@@ -28,13 +31,23 @@ alter database [name] set recovery full
 
 -- Partial backus include filegroups, basically read-write ones.
 
--- backup a filegroup
-BACKUP DATABASE [name]   
- <file_or_filegroup> [ ,...n ]   
-  TO <backup_device> [ ,...n ]   
-  [ <MIRROR TO clause> ] [ next-mirror-to ]  
-  [ WITH { DIFFERENTIAL | <general_WITH_options> [ ,...n ] } ]  
-[;]  
+-- backup filegroups
+BACKUP DATABASE Sales  
+   FILEGROUP = 'SalesGroup1',  
+   FILEGROUP = 'SalesGroup2'  
+   TO DISK = 'C:\MySQLServer\Backups\Sales\SalesFiles.bck'  
+   WITH   
+      DIFFERENTIAL;  -- also possible not differential
+GO  
+
+-- Backup Files
+-- These file are on the secondary filegroup. Don't need to specify it
+BACKUP DATABASE Sales  
+   FILE = 'SGrp1Fi2',   
+   FILE = 'SGrp2Fi2'   
+   TO DISK = 'G:\SQL Server Backups\Sales\SalesGroup1.bck';  
+GO  
+
 
 -- Partial backups could be differential ot not
 BACKUP DATABASE [name]  
