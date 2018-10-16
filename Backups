@@ -1,0 +1,27 @@
+/* File extensions for SQL Server backups
+
+Full Database Backup      - *.bak
+
+Transaction Log Backup    - *.trn
+
+Differential Backup       - *.dif
+
+Filegroup Backup          - *.fil
+*/
+
+-- SQL Server full database backup basic syntax
+BACKUP DATABASE [AdventureWorks] TO  DISK = N'F:\data\backup\[name].bak' 
+GO
+
+-- SQL Server transaction log backup
+BACKUP LOG [AdventureWorks] TO  DISK = N'F:\data\backup\[name]_20120201_1430.trn' 
+GO
+
+-- SQL Server differential backup
+BACKUP DATABASE [AdventureWorks] TO  DISK = N'F:\data\backup\[name].dif' 
+WITH  DIFFERENTIAL
+GO
+
+-- Change recovery mode
+-- (simple, full, bulk logged)
+alter database [name] set recovery full
