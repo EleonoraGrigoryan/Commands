@@ -1,0 +1,12 @@
+-- Restore from filegroups
+
+--Primary fg
+RESTORE DATABASE DatabaseForFileBackups FILEGROUP = 'PRIMARY' FROM DISK = 'C:\--\pr.bak'
+  WITH NORECOVERY 
+ --Secondary fg
+RESTORE DATABASE DatabaseForFileBackups FILEGROUP = 'Secondary' FROM DISK = 'C:\--\sc.bak'
+  WITH NORECOVERY 
+
+-- tail log with recovery
+RESTORE DATABASE DatabaseForFileBackups FROM DISK = 'C:\--\log.trn'
+  WITH RECOVERY 
