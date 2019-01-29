@@ -1,0 +1,18 @@
+-- Create a fg
+alter database [db_name]
+add filegroup [fg_secondary1];
+
+-- Create a file in a specified fg
+alter database [db_name]
+add file 
+(  
+    name = [logical_name],  
+    filename = 'C:\---.ndf',  
+    size = 5MB,  
+    maxsize = 100MB,  
+    filegrowth = 5MB  
+)  
+to filegroup [fg_secondary1];
+
+-- Relocate file from one fg to another
+generally it is not possible => delete - recreate
