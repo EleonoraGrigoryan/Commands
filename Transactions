@@ -1,0 +1,18 @@
+-- Create a transaction which rollsback in case of error(using try/catch)
+begin try
+  begin tran [name]
+   -- stuff [select 1/0]
+  commit tran
+end try
+
+begin catch
+  if @@trancount > 0
+    rollback tran
+    
+  declare @error_number int = error_number(),
+	        @error_message nvarchar(400) = error_message(),
+	        @error_severity int = error_severity(),
+	        @error_state int = error_state()
+
+  raiserror(@error_message, @error_severity, @error_state)
+end catch
