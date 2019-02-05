@@ -1,6 +1,7 @@
 -- Create a transaction which rollsback in case of error(using try/catch)
 begin try
   begin tran [name]
+  with mark '[desc]';
    -- stuff [select 1/0]
   commit tran
 end try
