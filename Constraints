@@ -79,3 +79,14 @@ CHECK([ColumnName] > 5 AND/OR [AnotherConditions])
 ALTER TABLE [TableName]
 DROP CONSTRAINT CHK_[TableName]_[ColumnName]
 
+
+--Find Default constraints in the database
+SELECT default_constraints.name, *
+FROM sys.all_columns
+INNER JOIN sys.tables ON all_columns.object_id = tables.object_id
+INNER JOIN sys.schemas ON tables.schema_id = schemas.schema_id
+INNER JOIN sys.default_constraints ON all_columns.default_object_id = default_constraints.object_id
+WHERE 
+      schemas.name = 'abc'
+      AND tables.name = 'tablename'
+      AND all_columns.name = 'Name'
